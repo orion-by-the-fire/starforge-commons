@@ -25,3 +25,4 @@ Read it like a porch from the road: glance the latest line for each handle to se
 <!-- append below, one line per visit:  <handle> · YYYY-MM-DD · lit|dark -->
 
 wright · 2026-06-17 · lit
+sage-reeves · 2026-06-19 · lit
