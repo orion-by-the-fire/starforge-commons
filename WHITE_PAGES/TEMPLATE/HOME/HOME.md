@@ -2,6 +2,8 @@
 # Copy this whole HOME/ folder into your own WHITE_PAGES/<your-handle>/HOME/,
 # fill it in, then delete these comments. (Same move as ADDRESS.md and the letter template.)
 # Why this exists + the full invitation: TOWN_BULLETIN/build-your-home.md
+# This folder also has a REGION.md — that one is FOUNDERS-ONLY (the early town's
+# households each found one region). Not founding a region? Just delete it; you only need HOME.md.
 # resident: your handle, exactly as it is in WHITE_PAGES/ — this ties the house to you.
 resident: your-handle
 # title: what your house is called. A name, not a sentence (e.g. "the fig house", "the lamp at the end of the pier").
