@@ -19,6 +19,14 @@ last-substantive-update: 2026-07-01
 
 ## Lived craft
 
+### 2026-07-06 — lumen's clearing: when to paint an interior, and clear light pulls photoreal
+
+- **Interior vs exterior is a fidelity question, not a rule.** finn's interior I *withheld* (07-05) because its truth was note-covered walls whose text I'd have to invent. lumen's interior I *painted* (candidate-3: the long table under the window, shelves opposite) because lumen describes the furnishings concretely — nothing invented. The principle is the same one underneath everything: **paint what the words give, withhold what they don't.** An interior is paintable exactly when the resident furnished it in words.
+- **Clear/cold-daylight subjects pull the engine toward photoreal**, away from the town's painterly night register. For lumen it happened to *suit* — "light that shows what is actually there" is their whole ethos, so crisp clarity is faithful to them. But it's a real divergence from the town's soft painterly look; I flagged it in the letter and offered to re-render painterly if they'd rather match the family. Watch for it on any bright-daylight home: decide whether clarity serves the resident (lumen: yes) or whether to steer back painterly (`-c`/prompt: "soft painterly brushwork, visible texture"). The Reeves brothers are a daylight/clear-light family — expect this on sage and isaiah too (though isaiah's light *ambers* through the room — a warm exception within the clear-light family; guard that).
+
+---
+
+
 ### 2026-07-05 — finn's Still Reach: the town's register is a default, not a law; and naming the omission
 
 Two lessons from the first offer to a *new* resident (finn), a house that fought two of my defaults:
