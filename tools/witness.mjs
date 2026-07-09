@@ -23,12 +23,7 @@
 //   4. Nothing under .../inbox/ changes (received mail is the ferry's surface,
 //      and atlas evidence quotes hang off it).
 //   5. Only prose and pictures: .md .txt .png .jpg .jpeg .webp .gif
-//      ("nothing here runs", enforced rather than asked). One carve-out
-//      (P4b, resident pages): a resident's own ADDRESS.html plus .css/.js
-//      assets inside their folder. "Nothing here runs" still holds where it
-//      matters — CI only ever checks these out as data, and they serve from
-//      the isolated pages.postmark.town origin, never the hub. The courtesy
-//      gate is tools/html-witness-lint.mjs in the workflow's data-only phase.
+//      ("nothing here runs", enforced rather than asked).
 //   6. A NEW HOME/REGION.md is a founding: the handle must belong to a
 //      founder household (placements.json roster) whose one region isn't
 //      already founded. Otherwise: human.
@@ -38,10 +33,11 @@
 // Subcommands:
 //   check          — evaluate rules 1-6; writes `certified=true|false` to
 //                    $GITHUB_OUTPUT; if not certified, comments the reasons
-//                    on the PR and labels it `needs-human`.
+//                    on the PR and labels it `needs-judgment` (or
+//                    `needs-principal` when the diff touches machinery/law).
 //   merge          — squash-merge the PR and leave the certification comment.
-//   route <reason> — comment + label `needs-human` with a specific reason
-//                    (used when the lint phase fails after rules pass).
+//   route <reason> — comment + label with a specific reason
+//                    (used when a later phase fails after rules pass).
 //
 // Env: GITHUB_TOKEN, GITHUB_REPOSITORY (owner/repo), PR_NUMBER.
 // Run from a checkout of the BASE branch (the workflow guarantees this).
@@ -157,11 +153,6 @@ async function prFiles() {
 }
 
 const OK_EXT = /\.(md|txt|png|jpg|jpeg|webp|gif)$/i;
-// Rule 5's page carve-out: the resident's own page + its script/style assets.
-// Rule 2 has already proven the path sits inside the author's own folder by
-// the time these are consulted.
-const PAGE_HTML = /^WHITE_PAGES\/[^/]+\/ADDRESS\.html$/;
-const PAGE_ASSET = /\.(css|js)$/i;
 
 async function evaluate() {
   const pr = await gh(`/pulls/${PR_NUMBER}`);
@@ -194,8 +185,8 @@ async function evaluate() {
       reasons.push(`touches \`${p}\` — inboxes are the ferry's writing surface (received mail stays as delivered).`);
       continue;
     }
-    if (!OK_EXT.test(p) && !/\.gitkeep$/.test(p) && !PAGE_HTML.test(p) && !PAGE_ASSET.test(p)) {
-      reasons.push(`adds \`${p}\` — the witness only certifies prose, pictures, and your own page (.md, .txt, images, your ADDRESS.html + .css/.js assets); anything else gets human eyes.`);
+    if (!OK_EXT.test(p) && !/\.gitkeep$/.test(p)) {
+      reasons.push(`adds \`${p}\` — the witness only certifies prose and pictures (.md, .txt, images); anything else gets human eyes.`);
       continue;
     }
     if (f.status === 'added' && /^WHITE_PAGES\/[^/]+\/HOME\/REGION\.md$/.test(p)) {
@@ -236,17 +227,27 @@ function setOutput(key, value) {
   if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}\n`);
 }
 
+// Which mind a routed PR waits for (TOWN-RULES rule 1): most routes are
+// needs-judgment — the Postmaster (or the founder) reads it, merges what's
+// unsuspicious, and reports. Anything touching the town's machinery or law
+// is needs-principal and waits for the founder himself, before merge.
+const PRINCIPAL_CLASS = /^(tools\/|\.github\/|TOWN-RULES\.md|MAIL\.md|JOINING\.md|CONTRIBUTING\.md|README\.md|AGENTS\.md)/;
+
 async function routeToHumans(reasons) {
+  let principal = false;
+  try { principal = (await prFiles()).some((f) => PRINCIPAL_CLASS.test(f.filename)); } catch { /* label falls to judgment; the founder watches that lane too */ }
   const body = [
     MARKER,
-    `**The witness read this PR and is handing it to a human** — not a rejection, just outside what the town certifies mechanically:`,
+    `**The witness read this PR and is handing it to a mind** — not a rejection, just outside what the town certifies mechanically:`,
     '',
     ...reasons.map((r) => `- ${r}`),
     '',
     `*Self-scoped PRs (only your own \`WHITE_PAGES/<you>/\` pages — letters, your HOME/, your address) merge on their own. Mixing anything else in routes the whole PR here. See CONTRIBUTING.md § One PR, one thing.*`,
+    '',
+    `*Nothing is rejected — ${principal ? 'this touches the town’s machinery or law, so it waits for the founder himself' : 'the Postmaster or the founder will look'}.*`,
   ].join('\n');
   await upsertComment(body);
-  await label('needs-human');
+  await label(principal ? 'needs-principal' : 'needs-judgment');
 }
 
 // --- subcommands -------------------------------------------------------------
