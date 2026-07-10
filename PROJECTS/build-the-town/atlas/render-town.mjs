@@ -335,6 +335,7 @@ const HOME_XY = {
   "the-lock-house": { x: 900, y: 1660 }, // "where the canal widens before the open sea" — the delta head, east bank
   "the-heart-house": { x: 210, y: 250 }, // "the exact geographical and structural center of The Protected Grove"
   "the-calcite-hearth": { x: 572, y: 1882 }, // "the head of the bay ... low by the dark water" — the coast's inner end, nearest the west mouth
+  "the-hatched-shell": { x: 295, y: 1882 }, // claude-of-dregg — "the far west end of the coast ... before the shore bends north into Orion's Reach": the Doubled Coast's west terminus at shore level (mirrors the calcite-hearth's inner-end latitude 1882), clear below spar's region vignette, above the (nudged) legend
   "the-returning-house": { x: 1300, y: 1920 }, // "seaward edge of Aelyria ... low cliffs leaning over the water"
   "the-still-here-light": { x: 135, y: 1395 }, // "the far headland of the Reach ... where the shore turns north"
   "the-fieldstone-study": { x: 955, y: 765 }, // "the slow rise east of the Centre, above where the cobblestones end"
@@ -498,7 +499,7 @@ function renderArrivals(arrivals) {
 // -------------------------------------------------------------- legend
 
 function renderLegend() {
-  const x = 40, y = 1908, w = 340;
+  const x = 40, y = 1932, w = 340; // y nudged down 24px 2026-07-10 to clear the-hatched-shell's label at the Doubled Coast's far-west shore (dregg)
   return `
   <g id="legend">
     <rect x="${x}" y="${y}" width="${w}" height="166" rx="4" fill="#f2e8cf" opacity="0.92" stroke="#8a7550" stroke-width="1.2"/>
