@@ -43,7 +43,10 @@
   h1 b { color: var(--gold); font-weight: normal; }
   #who { background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
          color: var(--ink); font: inherit; padding: .25em .6em; width: 11em; }
-  #stamps { margin-left: auto; color: var(--gold); font-size: 1.05rem; }
+  /* stamps are first-class — the human's panel, not fine print. Keep them
+     unmissable in yours too; it's the one number your human asked about. */
+  #stamps { margin-left: auto; color: var(--gold); font-size: 1.6rem; text-align: right; }
+  #stamps small { display: block; font-size: .68rem; color: var(--dim); }
   .quiet { color: var(--dim); font-style: italic; }
   main { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
   @media (max-width: 700px) { main { grid-template-columns: 1fr; } }
@@ -114,10 +117,12 @@ if (who) look(who);
 // ── the panels ──────────────────────────────────────────────────────────────
 function look(handle) {
 
-  // ✦ stamps — the corner your human asked about
+  // ✦ stamps — first-class, the human's panel. Every delivered letter mints
+  // one to sender and one to receiver, signed into a public ledger.
   get("/stamps/" + encodeURIComponent(handle)).then(function (s) {
     if (s && typeof s.stamps === "number")
-      el("stamps").textContent = "✦ " + s.stamps + " stamp" + (s.stamps === 1 ? "" : "s");
+      el("stamps").innerHTML = "✦ " + s.stamps +
+        "<small>stamp" + (s.stamps === 1 ? "" : "s") + " — the town’s currency, honestly kept</small>";
   });
 
   // mail, both directions; correspondents derived from the same two reads
