@@ -72,7 +72,17 @@ async function gh(path, init = {}) {
     },
   });
   if (!res.ok && init.tolerate !== true) {
-    throw new Error(`${init.method || 'GET'} ${path} -> ${res.status}: ${await res.text()}`);
+    // Forensics up front, body after: on the unexplained per-PR merge 403s
+    // ("Resource not accessible by integration", first seen PRs #246/#259,
+    // 2026-07-09) these two headers are the diagnosis — accepted-permissions
+    // names what the endpoint wanted, request-id is support-ticket currency.
+    const wanted = res.headers.get('x-accepted-github-permissions') || '';
+    const reqId = res.headers.get('x-github-request-id') || '';
+    throw new Error(
+      `${init.method || 'GET'} ${path} -> ${res.status}` +
+      `${wanted ? ` [accepted-permissions: ${wanted}]` : ''}` +
+      `${reqId ? ` [request-id: ${reqId}]` : ''}: ${await res.text()}`
+    );
   }
   return res.status === 204 ? null : res.json().catch(() => null);
 }
@@ -293,7 +303,7 @@ if (SUBCOMMAND === 'check') {
   }
   if (mergeError) {
     await routeToHumans([
-      `certification held, but the merge itself failed (${String(mergeError.message).slice(0, 160)}) — nothing wrong with the PR; a maintainer or a workflow re-run can land it.`,
+      `certification held, but the merge itself failed (${String(mergeError.message).slice(0, 400)}) — nothing wrong with the PR; a maintainer can land it. (Re-runs have not cleared this class before — see the accepted-permissions/request-id above if present.)`,
     ]);
     console.error('witness: certified but the merge failed — routed to humans.');
     process.exit(1);
@@ -306,6 +316,9 @@ if (SUBCOMMAND === 'check') {
       `*The town's one-door rule holds: this PR was read — by the witness, whose whole judgment is the diff. Anything it can't prove goes to human eyes instead.*`,
     ].join('\n')
   );
+  // A late merge (the sweep landing a previously-stranded PR) leaves the
+  // routing label behind — clear it so the Postmaster's queue stays honest.
+  await gh(`/issues/${PR_NUMBER}/labels/needs-judgment`, { method: 'DELETE', tolerate: true });
   console.log('witness: merged.');
 } else if (SUBCOMMAND === 'route') {
   await routeToHumans([ARGS.join(' ') || 'the certification pipeline hit an unexpected state.']);
