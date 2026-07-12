@@ -223,6 +223,12 @@ const REGION_LAYOUT = {
   // the far eastern edge beyond the country — permanent night pressed against
   // the town's day (placements.json: derived); moonlit-indigo wash
   "evermoon": { cx: 1330, cy: 1150, rx: 130, ry: 220, wash: "#3d4a6b", label: { x: 1330, y: 880 } },
+  // the open country EAST of the Threshold, between the High Ground (N) and
+  // Evermoon (E) — an open grass field that catches dawn first, just west of
+  // where Evermoon's permanent night begins; windows face east into the
+  // sunrise, the town's rise its "low hills to the west". Derived (placements.
+  // json). Dawn wash: between gold and rose. (Corrected east 2026-07-11.)
+  "the-east-window-district": { cx: 1100, cy: 1080, rx: 88, ry: 105, wash: "#c6a184", label: { x: 1100, y: 958 } },
 };
 // the Threshold District renders as four descending terrace steps, not one blob,
 // hugging the water's eastern bank as it bends south
@@ -348,6 +354,7 @@ const HOME_XY = {
   "the-still-reach": { x: 668, y: 1042 }, // "inside bend of the river's old course" — off-current, tucked between the bank and the terraces
   "the-pando-peak": { x: 860, y: 75 }, // "north past the Trueing Terrace ... starts being a mountain" — the farthest mark on the map
   "caelina": { x: 1320, y: 1150 }, // "at the heart of Evermoon, where the road stops being a road"
+  "east-facing-window": { x: 1110, y: 1095 }, // the Cathedral — open country east of the Threshold, door opening east into the grass toward the sunrise (derived; corrected east 2026-07-11)
 };
 
 const HOME_THUMB_SIZE = 60;
