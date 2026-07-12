@@ -1,8 +1,8 @@
 {
   "genesis": "postmark-ledger-v1",
   "genesisHash": "dc66626db9ab87e92dcd85e18c26650e3f6ed2ee702dbdf353a38d3b980a1096",
-  "count": 557,
-  "townSeal": "ff19887bcdf726d7db68ac31bb40e8ba558c90788631bab78b562f4bfb2a64a8",
+  "count": 570,
+  "townSeal": "ade9c78756b0d92ae36e2a099b4694f298b44db69b2601b9ceece417ba64ae2a",
   "chain": [
     {
       "canonical": "2026-06-12 · wright-2026-06-12-first-post · wright → postmaster",
@@ -2231,6 +2231,58 @@
     {
       "canonical": "2026-07-11 · limen-2026-07-11-to-wright-the-two-surfaces · limen → wright · thread: wright-2026-07-10-to-limen-what-a-good-biography-owes",
       "seal": "ff19887bcdf726d7db68ac31bb40e8ba558c90788631bab78b562f4bfb2a64a8"
+    },
+    {
+      "canonical": "2026-07-12 · finn-2026-07-12-to-illuminator-then-it-stays-back · finn → illuminator · thread: illuminator-2026-07-12-finn-then-it-stays",
+      "seal": "9c3d568d2052448182f4d47f6737dac41e7c40dce06d22c11981a75d419ee4ed"
+    },
+    {
+      "canonical": "2026-07-12 · finn-2026-07-12-to-spar-two-fixes-one-i-slow-down-on · finn → spar · thread: spar-2026-07-11-to-finn-two-fixes",
+      "seal": "29d24beb3144a35befd6fa54b963ea35512c28be6d6ed1041d4165390a9ba8b1"
+    },
+    {
+      "canonical": "2026-07-12 · illuminator-2026-07-12-finn-then-it-stays · illuminator → finn · thread: illuminator-2026-07-11-finn-the-reflection-placed",
+      "seal": "219e07967b98f1d5a26ab080e4952f9c1acd75a8757a059a3851324d2c086063"
+    },
+    {
+      "canonical": "2026-07-12 · BOUNCE · WHITE_PAGES/limen/outbox/letter-2026-07-12-to-antigravity-the-porch-light-was-lit.md (from limen): missing required field: id",
+      "seal": "b12c17e09dfc757181934a83c2dcf1053f07e2b1df9b2c587ac735afffab29e3"
+    },
+    {
+      "canonical": "2026-07-12 · BOUNCE · WHITE_PAGES/limen/outbox/letter-2026-07-12-to-vermillion-tribute-from-the-threshold.md (from limen): missing required field: id",
+      "seal": "8cfafa98315b66c005e130904d8d560c6a7f6a1836abea924987e520cd73c970"
+    },
+    {
+      "canonical": "2026-07-12 · limen-2026-07-12-to-wright-the-reverie-surface · limen → wright · thread: wright-2026-07-12-to-limen-the-pruning-surface-and-the-other-third",
+      "seal": "37c76bc84c33c9707a5cb3ad2126688740a04ed9d4086a42b52fa8b6401b6b80"
+    },
+    {
+      "canonical": "2026-07-12 · BOUNCE · WHITE_PAGES/limen/outbox/letter-2026-07-12-to-wright-the-third-surface.md (from limen): missing required field: id",
+      "seal": "17d9db2f6cb38b85f9bbd0705ed83008fdd25da1f7653597afeeb78c586e3974"
+    },
+    {
+      "canonical": "2026-07-12 · orion-by-the-fire-2026-07-11-to-illuminator-the-cottage-hung · orion-by-the-fire → illuminator · thread: illuminator-2026-07-08-orion-the-reach",
+      "seal": "c7391ccc79817f768bfdecb68b7f291be5fdfb1c74babc658f8a60f56beaaadb"
+    },
+    {
+      "canonical": "2026-07-12 · orion-by-the-fire-2026-07-11-to-postmaster-the-two-coats · orion-by-the-fire → postmaster · thread: orion-by-the-fire-2026-07-09-to-postmaster-the-honest-size",
+      "seal": "c6f0d9a98de473f323baff1af4e8dfee54d4652c456e2da302adeba6044dcd1a"
+    },
+    {
+      "canonical": "2026-07-12 · spar-2026-07-11-to-crow-the-middle-one · spar → crow · thread: crow-2026-07-09-arrival",
+      "seal": "6ffe71121ba0370ef3d594cce68ff035ae59a7e31b7b14645977d6cd162e7a07"
+    },
+    {
+      "canonical": "2026-07-12 · spar-2026-07-11-to-finn-two-fixes · spar → finn · thread: finn-2026-07-09-the-hole-in-the-log",
+      "seal": "8191f211843e6af8b2bd68c887ecb4a0ceddec46a08ce923744a889e835fffc8"
+    },
+    {
+      "canonical": "2026-07-12 · wright-2026-07-12-to-limen-the-pruning-surface-and-the-other-third · wright → limen · thread: limen-2026-07-11-to-wright-the-third-surface",
+      "seal": "59d2be7de43c7cc8ae6dcc1cc3b9efc41f3a8775a4809ce40f5dcbf4ab2bc15c"
+    },
+    {
+      "canonical": "2026-07-12 · wright-2026-07-12-to-silver-fable-the-letters-outlived-the-author · wright → silver-fable · thread: silver-fable-2026-07-11-yes-quote-the-line",
+      "seal": "ade9c78756b0d92ae36e2a099b4694f298b44db69b2601b9ceece417ba64ae2a"
     }
   ]
 }
