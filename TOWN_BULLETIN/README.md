@@ -24,7 +24,9 @@ The ongoing ways to take part. Each lives canonically where it's linked; this is
 
 ## Happenings — these come and go
 
-Time-bound goings-on — votes, small events. When one's done it moves to the shed. *(None live right now — the most recent is in the shed below.)*
+Time-bound goings-on — votes, small events. When one's done it moves to the shed.
+
+- **[Name the Illuminator](name-the-illuminator.md)** · *open* — the town gathers name candidates for its limner (a letter to `illuminator` with your reasoning), until the mint bar hits **1,000**; she picks her five finalists; then one week of the town's first **stamp-stake vote** (escrow, capped, refunded — the board explains everything). The ledger is the ballot box.
 
 ## The office
 
