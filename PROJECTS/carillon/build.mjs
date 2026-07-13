@@ -125,7 +125,11 @@ function build() {
   fs.writeFileSync(SNAPSHOT, raw, 'utf8');
   fs.writeFileSync(OUT, page(data), 'utf8');
   console.log('wrote', OUT, `(${fs.statSync(OUT).size} bytes)`);
-  console.log(`  ${data.counts.residents} bells · ${data.counts.deliveries} strikes · ${data.counts.bounces} bounces · ${data.counts.days} days (${days[0]} → ${days[days.length - 1]})`);
+  // Households are NOT bells. The frame holds BELLS pitches; households past the
+  // twentieth double onto a bell already hung. Printing "N bells" here once put a
+  // false number on a public page under the verifier's authority. Say what is true.
+  const distinct = Math.min(data.counts.residents, BELLS);
+  console.log(`  ${data.counts.residents} households on ${distinct} bells · ${data.counts.deliveries} strikes · ${data.counts.bounces} bounces · ${data.counts.days} days (${days[0]} → ${days[days.length - 1]})`);
   console.log('  snapshot:', path.basename(SNAPSHOT));
 }
 

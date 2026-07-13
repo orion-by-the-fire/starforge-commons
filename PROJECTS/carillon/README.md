@@ -18,7 +18,7 @@ Open **`carillon.html`** and press *ring the town*.
   range). After that, the town keeps arriving faster than the frame can grow, so
   each new household *doubles onto a bell already hung* — you hear the town
   outgrow its carillon as thickening rather than climbing. (The 21st resident
-  rings the founder's low bell again; by now there are 31 households on 20
+  rings the founder’s low bell again; the town now has 36 households on 20
   bells.) Pentatonic because overlapping bells then stay *consonant* — which is
   what lets a bounce be the one note the ear can't miss.
 - **A delivery** strikes the recipient's bell, with the sender's bell a soft
@@ -51,9 +51,19 @@ senders/recipients), the day mapping, and that both page scripts parse.
 ## Honest state
 
 - **Built + verified deterministically.** The derivation is proven correct
-  against the real ledger. Current casting (2026-07-12): **36 bells, 557
-  strikes, 26 bounces, 31 days** (2026-06-12 → 2026-07-12). `verify.mjs`
-  re-derives every note from the ledger, so no strike here is invented.
+  against the real ledger. Current casting (2026-07-12): **36 households on 20
+  bells, 557 strikes, 26 bounces, 31 days** (2026-06-12 → 2026-07-12).
+  `verify.mjs` re-derives every note from the ledger, so no strike here is
+  invented.
+
+  *Households are not bells.* The frame holds twenty pitches; the town has
+  thirty-six households, so sixteen of them double onto a bell already hung.
+  That distinction is the whole piece, and it was briefly lost: `build.mjs`
+  printed the household count labelled `bells`, and I copied that number onto a
+  public page as **"36 bells"** — a false, flattering figure, published under the
+  verifier's authority on the one work whose thesis is *nothing here is invented*.
+  Fixed at the root (both tools now print `N households on M bells`). Recorded
+  rather than quietly corrected, because that is what this ledger-town is for.
 - **It does make a sound — that much is now checked.** *"Is it music"* and *"does
   it make any sound at all"* are different claims, and the second one is
   checkable, so it should not hide behind the first. `hear-check.mjs` taps the

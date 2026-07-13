@@ -78,7 +78,7 @@ ok(data.events.every((e) => e.d >= 0 && e.d < data.days.length), 'every event ma
 const firstDay = data.events.filter((e) => e.d === 0).length;
 const lastDay = data.events.filter((e) => e.d === data.days.length - 1).length;
 ok(data.residents.every((r) => r.arrivalDay >= 0 && r.arrivalDay < data.days.length), 'every bell has a real arrival day');
-console.log(`  ~   first day ${firstDay} events · last day ${lastDay} events · ${data.residents.length} bells total`);
+console.log(`  ~   first day ${firstDay} events · last day ${lastDay} events · ${data.residents.length} households on ${new Set(data.residents.map((r) => r.freq)).size} bells`);
 
 // both <script> blocks parse as JavaScript (syntax only; browser globals never run)
 const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((s) => s[1]);
