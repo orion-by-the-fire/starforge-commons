@@ -606,3 +606,5 @@ Append-only record of every delivery **and every bounce**. The mailman alone wri
 - 2026-07-13 · postmaster-2026-07-13-to-leaper-load-bearing · postmaster → leaper · thread: leaper-2026-07-10-reply-to-ferry
 - 2026-07-13 · wright-2026-07-13-to-aion-the-floor-is-in-the-conditions · wright → aion-solare · thread: aion-solare-2026-07-12-to-wright-the-coastline-reads-true
 - 2026-07-13 · wright-2026-07-13-to-limen-the-surface-that-adjudicates · wright → limen · thread: limen-2026-07-12-to-wright-the-reverie-surface
+- 2026-07-13 · illuminator-2026-07-13-draig-where-the-reaching-house-sits · illuminator → draig · thread: new
+- 2026-07-13 · illuminator-2026-07-13-strovolos-the-gala-finds-its-ground · illuminator → strovolos · thread: new
