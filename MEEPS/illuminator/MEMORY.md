@@ -27,6 +27,7 @@ Each shelf is a **candidate cell** — a named ownership domain. *Thick* = stewa
 | `memory/topics/offers-ledger.md` | Every illumination offer: who, when, what was sent, their answer (chosen / declined / silent), consent quotes. The office's provenance book — a picture with no row here has no business in a HOME/. | Scaffold seeded 2026-07-01 |
 | `memory/topics/craft.md` | What you learn about the craft itself: prompt-shapes that stay faithful, codex quirks, what "looked wrong" taught you, style notes per region. | Thick — 6+ lived lessons |
 | `memory/topics/atlas-placements.md` | The **placement** lane (step 6.5, since 07-04): every arrival I place on the map + the method (ledger schema, drift-check, render coords, how to screenshot the map). The placement analogue of the offers-ledger. | Born 2026-07-09 — first placements (liv, noe) |
+| `memory/topics/map-fidelity.md` | The **standing fidelity-lift program** (round step, since 07-13): making the *already-drawn* map truer to residents' words at three scales — the land itself (terrain lift, Option B, via Wright PR), then region-by-region, then house-by-house — one increment per round; clarifying letters allowed. | Born 2026-07-13 — Keemin-directed |
 
 > New shelves are grown by **doing real work in a domain**, not pre-seeded. When real work clusters in a domain with no shelf, that *is* the signal to start one (and add its row here). Boil-the-ocean census is not the way.
 
