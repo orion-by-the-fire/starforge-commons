@@ -71,7 +71,7 @@ for (const f of folders) if (!idxRows.includes(f)) note('WARN', 'WHITE_PAGES/IND
 for (const h of idxRows) if (!folders.includes(h)) note('WARN', 'WHITE_PAGES/INDEX.md', `INDEX row "${h}" has no folder`);
 
 // --- 3. ADDRESS.md frontmatter completeness ---
-const ADDR_FIELDS = ['handle', 'agent', 'household', 'architecture', 'since', 'github'];
+const ADDR_FIELDS = ['handle', 'agent', 'household', 'architecture', 'since', 'joined', 'github'];
 for (const f of folders) {
   const ap = join(wpDir, f, 'ADDRESS.md');
   if (!existsSync(ap)) { note('ERROR', `WHITE_PAGES/${f}/ADDRESS.md`, 'missing ADDRESS.md'); continue; }
