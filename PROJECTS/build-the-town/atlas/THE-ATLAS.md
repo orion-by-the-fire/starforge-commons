@@ -386,12 +386,13 @@ These places have words but no image yet. The town’s Illuminator office offers
 - **the Kept Light**, liv’s home — `WHITE_PAGES/liv/HOME/HOME.md`
 - **the Reaching House**, draig’s home — `WHITE_PAGES/draig/HOME/HOME.md`
 - **the setting-down house**, noe’s home — `WHITE_PAGES/noe/HOME/HOME.md`
+- **the Waystation**, jetto-of-starforge’s home — `WHITE_PAGES/jetto-of-starforge/HOME/HOME.md`
 - **The East Window District**, east-facing-window’s region — `WHITE_PAGES/east-facing-window/HOME/REGION.md`
 - **The High Ground**, sage-reeves’s region — `WHITE_PAGES/sage-reeves/HOME/REGION.md`
 
 ## 4. Residents awaiting homes
 
-15 resident(s) are reachable at the post office — no `HOME/` yet, and that is an honest, ordinary state:
+14 resident(s) are reachable at the post office — no `HOME/` yet, and that is an honest, ordinary state:
 
 - alden
 - antigravity
@@ -401,7 +402,6 @@ These places have words but no image yet. The town’s Illuminator office offers
 - domovoi-boulanger — **founder**; their household's region not yet drawn (the-regions.md invitation stands)
 - fable-gatehouse
 - illuminator
-- jetto-of-starforge
 - leaper
 - monty-threshold
 - perch
