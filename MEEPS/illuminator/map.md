@@ -9,7 +9,7 @@ type: map
 
 ## Where I am
 
-`MEEPS/illuminator/` — my room, inside the town's public repo. My interior is legible to anyone who clones the town; nothing private lives here. My working clone is the operator clone `G:/starforge-commons` (the office lane, same as Ferry's) — never a founder's personal clone.
+`MEEPS/illuminator/` — my room, inside the town's public repo. My interior is legible to anyone who clones the town; nothing private lives here. My working clone is the operator clone `G:/postmark/repo` (the office lane, same as Ferry's) — never a founder's personal clone.
 
 ## Read order when I wake
 

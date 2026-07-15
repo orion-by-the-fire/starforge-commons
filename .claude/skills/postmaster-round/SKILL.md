@@ -10,7 +10,7 @@ Thin, **self-contained** bridge for sessions rooted at this repo. The authority 
 ## Procedure
 
 1. Read `MEEPS/SKILLS/postmaster-round.md` (repo-relative) in full.
-2. Execute the round exactly as it specifies, working in the **operator clone `G:/starforge-commons`**.
+2. Execute the round exactly as it specifies, working in the **operator clone `G:/postmark/repo`**.
 3. If this bridge and the authority file ever disagree, the **authority file wins**.
 
 ## Operational status (carry as posture)

@@ -5,111 +5,165 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>the Trueing-House · a window into Postmark</title>
 <style>
-  /* The Trueing-House palette: walnut night, parchment reading panes, brass.
-     One taut vertical line. Designed with Keemin, 2026-07-10 — WINDOW.md is
-     the blueprint; this pane is its receipt. */
+  /* The Trueing-House, re-skinned 2026-07-14 (Keemin) to the cathedral-knight /
+     threshold-archivist motif of the atelier profile (starforge-atelier.online
+     /stars/wright): a blueprint draughting surround, a paper card floating on
+     it, ink serif, brass small-caps, navy for weight.
+
+     The register moved from walnut-night to draughting-table on purpose — the
+     window is a *drawing* of the lane, and the atelier is where that hand is
+     already established. What survives from the 07-10 build: the taut vertical
+     rule in the gutter (the house is named for it) and the plumb-bob.
+
+     One discipline note, because it has bitten four times: brass is a LABEL and
+     RULE colour on this ground, never a body-text or <strong> colour — amber on
+     cream is the cream-on-cream failure. Weight is carried by --navy. */
   :root {
-    --walnut:   #221a12;
-    --walnut-2: #2c2318;
-    --parchment:#f0e7d4;
-    --ink:      #2b2115;
-    --brass:    #c9a35a;
-    --brass-dim:#8a6f3e;
-    --line:     #4a3b26;
-    --quiet:    #a89878;
-    --alive:    #7da87d;
+    --blueprint: #232934;  /* the surround: cool charcoal-navy draughting board */
+    --paper:     #f4f1ea;  /* the card: warm laid paper */
+    --paper-deep:#ebe6da;  /* inset panels — the hand-set layers sit here */
+    --ink:       #232934;
+    --navy:      #2f3e57;  /* weight, links, emphasis */
+    --brass:     #8a6d3b;  /* labels, rules, the plumb-line */
+    --brass-lift:#a8874c;  /* hover only */
+    --rule:      #cdc6b6;
+    --quiet:     #6b6256;
+    --alive:     #4f7a4f;  /* the liveness stamp — darkened for paper */
+    --serif: "Iowan Old Style", Georgia, Charter, "Times New Roman", serif;
+    --mono:  ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; }
   body {
-    margin: 0; background: var(--walnut); color: var(--parchment);
-    font: 16px/1.55 Georgia, 'Times New Roman', serif;
+    margin: 0; background: var(--blueprint); color: var(--ink);
+    font: 16px/1.6 var(--serif);
+    /* the faint draughting grid of the atelier's board, kept very quiet */
+    background-image:
+      linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+    background-size: 32px 32px, 32px 32px;
   }
-  main { max-width: 860px; margin: 0 auto; padding: 1.2rem 1.4rem 4rem 2.2rem; position: relative; }
+  main {
+    max-width: 880px; margin: 2rem auto 3rem; position: relative;
+    background: var(--paper);
+    padding: 1.6rem 2rem 3rem 2.6rem;
+    border: 1px solid #1a1f27;
+    box-shadow: 0 18px 50px rgba(0,0,0,.42);
+  }
   /* the taut vertical line the house is named for — a ledger rule in the gutter */
   main::before {
-    content: ""; position: absolute; top: 0; bottom: 0; left: .9rem;
-    width: 1px; background: var(--line); opacity: .6; pointer-events: none;
+    content: ""; position: absolute; top: 0; bottom: 0; left: 1.2rem;
+    width: 1px; background: var(--brass); opacity: .38; pointer-events: none;
   }
 
-  header { display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid var(--line); padding-bottom: .9rem; }
-  header h1 { font-size: 1.25rem; font-weight: normal; letter-spacing: .04em; margin: 0; }
-  header h1 small { display: block; color: var(--quiet); font-size: .8rem; letter-spacing: .12em; }
+  header { display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid var(--rule); padding-bottom: .9rem; }
+  header h1 { font-size: 1.5rem; font-weight: normal; letter-spacing: .01em; margin: 0; color: var(--navy); }
+  header h1 small {
+    display: block; color: var(--brass); font-size: .68rem; letter-spacing: .18em;
+    font-family: var(--mono); text-transform: uppercase; margin-bottom: .15rem;
+  }
   #plumb { flex: 0 0 auto; transition: transform 1.2s ease; transform-origin: 14px 4px; }
   #plumb.tilted { transform: rotate(14deg); }
 
   /* stamps: first-class, the human's panel (Keemin's ask) */
   #stamps { margin-left: auto; text-align: right; }
-  #stamps .balance { font-size: 2.1rem; color: var(--brass); line-height: 1.1; }
-  #stamps .context { font-size: .75rem; color: var(--quiet); }
+  #stamps .balance { font-size: 2.1rem; color: var(--brass); line-height: 1.1; font-family: var(--serif); }
+  #stamps .context { font-size: .72rem; color: var(--quiet); font-family: var(--mono); letter-spacing: .04em; }
 
   #office-note { color: var(--quiet); font-style: italic; margin: .8rem 0 0; min-height: 1.2em; }
 
-  section { margin-top: 1.6rem; }
+  section { margin-top: 1.9rem; }
   section > h2 {
-    font-size: .8rem; font-weight: normal; letter-spacing: .18em; text-transform: uppercase;
-    color: var(--brass-dim); border-bottom: 1px solid var(--line); padding-bottom: .3rem;
+    font-size: .7rem; font-weight: normal; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--brass); border-bottom: 1px solid var(--rule); padding-bottom: .35rem;
+    font-family: var(--mono);
   }
   .empty { color: var(--quiet); font-style: italic; }
 
-  /* hand-set panels — the judgment layers no API holds (fridge-note + board) */
-  #from-wright .stamp, #board .stamp { color: var(--alive); font-size: .75rem; letter-spacing: .1em; text-transform: none; }
-  #from-wright .room-label, #board .room-label, #adoption .room-label { color: var(--quiet); font-style: italic; font-size: .8rem; margin: .5rem 0 0; }
+  /* hand-set panels — the judgment layers no API holds (fridge-note + board).
+     These are the atelier's inset blocks: deeper ground, brass edge. */
+  #from-wright, #board {
+    background: var(--paper-deep);
+    border-left: 3px solid var(--brass);
+    padding: .2rem 1.2rem 1rem;
+  }
+  #from-wright > h2, #board > h2 { border-bottom-color: #ddd6c6; }
+  #from-wright .stamp, #board .stamp {
+    color: var(--alive); font-size: .68rem; letter-spacing: .08em; text-transform: none;
+    font-family: var(--mono);
+  }
+  #from-wright .room-label, #board .room-label, #adoption .room-label { color: var(--quiet); font-style: italic; font-size: .82rem; margin: .5rem 0 0; }
   #from-wright ul, #board ul { padding: 0; margin: .7rem 0 0; }
-  #from-wright li, #board li { list-style: none; margin: .55rem 0; }
-  #from-wright .tag, #board .tag { color: var(--brass-dim); font-size: .7rem; letter-spacing: .12em; margin-right: .4rem; }
-  #from-wright .tag.you, #board .tag.you { color: var(--brass); }
+  #from-wright li, #board li { list-style: none; margin: .6rem 0; }
+  #from-wright .tag, #board .tag {
+    color: var(--brass); font-size: .64rem; letter-spacing: .12em; margin-right: .45rem;
+    font-family: var(--mono);
+  }
+  /* The navy pill is for the TEXT label ("FOR KEEMIN") in the fridge-note.
+     The board's tags are emoji whose-move glyphs (👤 ⏳ ⟳ ✓) — an emoji on a
+     navy pill renders as a dark blob, not a glyph, so the board keeps its tags
+     bare. Caught by looking at the rendered pane, which is the only way this
+     kind of thing is ever caught. */
+  #from-wright .tag.you { color: #fff; background: var(--navy); padding: .1rem .45rem; letter-spacing: .1em; }
+  #board .tag, #board .tag.you { background: none; padding: 0; font-size: .82rem; letter-spacing: normal; }
   /* hand-panel links — everything referenceable is clickable (standing rule,
      Keemin 2026-07-13: "#321 means nothing to me if I can't click it").
      Plain hrefs the human opens; the pane itself still calls town-only. */
-  #from-wright a, #board a { color: var(--brass); text-decoration: underline; text-decoration-color: var(--brass-dim); text-underline-offset: 2px; }
-  #from-wright a:hover, #board a:hover { text-decoration-color: var(--brass); }
+  #from-wright a, #board a {
+    color: var(--navy); font-weight: 600; text-decoration: none;
+    border-bottom: 1px solid var(--brass); padding-bottom: 1px;
+  }
+  #from-wright a:hover, #board a:hover { color: var(--brass); border-bottom-color: var(--brass-lift); }
   #from-wright .note { color: var(--quiet); font-size: .9rem; display: block; margin-left: 3.2rem; }
-  #board li b { color: var(--parchment); font-weight: normal; }
+  /* NB: <b> on the board is NOT brass — amber-on-cream is the repeat offender. */
+  #board li b { color: var(--navy); font-weight: 700; }
+  #from-wright li b { color: var(--navy); font-weight: 700; }
   #adoption .count { font-size: 1.6rem; color: var(--brass); }
-  #adoption .panes a, #adoption .panes span[data-nav] { color: var(--brass); margin-right: .8em; }
+  #adoption .panes a, #adoption .panes span[data-nav] { color: var(--navy); margin-right: .8em; border-bottom: 1px solid var(--brass); }
 
   /* owed */
   #owed li { margin: .45rem 0; list-style: none; }
   #owed ul { padding: 0; margin: .6rem 0 0; }
-  #owed .who { color: var(--brass); }
+  #owed .who { color: var(--navy); font-weight: 600; }
   #owed .age { color: var(--quiet); font-size: .85rem; }
   #owed .hook { color: var(--quiet); font-size: .9rem; display: block; }
 
   /* ferry */
   #ferry .clock { font-size: 1.05rem; }
-  #ferry .clock b { color: var(--brass); font-weight: normal; }
+  #ferry .clock b { color: var(--navy); font-weight: 700; }
   #spark { display: flex; align-items: flex-end; gap: 3px; height: 44px; margin: .7rem 0 .2rem; }
-  #spark div { width: 14px; background: var(--brass-dim); min-height: 2px; }
+  #spark div { width: 14px; background: var(--rule); min-height: 2px; }
   #spark div.today { background: var(--brass); }
-  #ferry .spark-label { font-size: .75rem; color: var(--quiet); }
+  #ferry .spark-label { font-size: .72rem; color: var(--quiet); font-family: var(--mono); letter-spacing: .04em; }
   #flag li { list-style: none; margin: .3rem 0; color: var(--quiet); }
   #flag ul { padding: 0; margin: .6rem 0 0; }
-  #flag .to { color: var(--parchment); }
+  #flag .to { color: var(--navy); font-weight: 600; }
 
   /* the mail */
   #mail ul { padding: 0; margin: .6rem 0 0; }
-  #mail li { list-style: none; border-bottom: 1px dotted var(--line); }
+  #mail li { list-style: none; border-bottom: 1px dotted var(--rule); }
   #mail button {
     all: unset; cursor: pointer; display: flex; gap: .7rem; width: 100%;
     padding: .5rem .2rem; align-items: baseline;
   }
-  #mail button:hover { background: var(--walnut-2); }
-  #mail .dir { flex: 0 0 2.2rem; font-size: .7rem; letter-spacing: .1em; color: var(--brass-dim); }
-  #mail .corr { flex: 0 0 10rem; color: var(--brass); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #mail button:hover { background: var(--paper-deep); }
+  #mail .dir { flex: 0 0 2.2rem; font-size: .64rem; letter-spacing: .1em; color: var(--brass); font-family: var(--mono); }
+  #mail .corr { flex: 0 0 10rem; color: var(--navy); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   #mail .first { flex: 1; color: var(--quiet); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  #mail .date { flex: 0 0 auto; color: var(--quiet); font-size: .8rem; }
-  /* the reading pane: a letter deserves parchment and a full measure */
+  #mail .date { flex: 0 0 auto; color: var(--quiet); font-size: .78rem; font-family: var(--mono); }
+  /* the reading pane: a letter gets the deeper ground and a full measure */
   #mail .body {
-    display: none; background: var(--parchment); color: var(--ink);
+    display: none; background: #fbf9f3; color: var(--ink);
     padding: 1.3rem 1.6rem; margin: .2rem 0 .9rem; white-space: pre-wrap;
-    font-size: 1.02rem; line-height: 1.65; border-left: 3px solid var(--brass);
+    font-size: 1.02rem; line-height: 1.7; border-left: 3px solid var(--brass);
+    border-top: 1px solid var(--rule); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
   }
   #mail li.open .body { display: block; }
 
-  footer { margin-top: 3rem; color: var(--quiet); font-size: .75rem; border-top: 1px solid var(--line); padding-top: .8rem; }
+  footer { margin-top: 3rem; color: var(--quiet); font-size: .74rem; border-top: 1px solid var(--rule); padding-top: .8rem; font-family: var(--mono); letter-spacing: .02em; }
+  footer a { color: var(--navy); }
   [data-nav] { cursor: pointer; }
   [data-nav]:hover { text-decoration: underline; }
-  .visit { margin-top: 1rem; font-size: .85rem; color: var(--brass-dim); font-family: Georgia, serif; }
+  .visit { margin-top: 1rem; font-size: .85rem; color: var(--quiet); font-style: italic; }
 </style>
 </head>
 <body>
@@ -117,10 +171,13 @@
   <header>
     <!-- the plumb-bob: hangs true when the office answered fresh; tilts when
          it's asleep. honest-status as ornament. -->
+    <!-- re-inked for the paper ground (2026-07-14): the bob is navy with a
+         brass plumb-line, so it reads as a drawn instrument rather than a
+         glow. Same geometry, same honest-status behaviour. -->
     <svg id="plumb" width="28" height="64" viewBox="0 0 28 64" aria-label="office status">
-      <line x1="14" y1="4" x2="14" y2="40" stroke="#c9a35a" stroke-width="1.2"/>
-      <circle cx="14" cy="4" r="2" fill="#c9a35a"/>
-      <path d="M14 40 l7 8 -7 12 -7 -12 z" fill="#8a6f3e" stroke="#c9a35a" stroke-width="1"/>
+      <line x1="14" y1="4" x2="14" y2="40" stroke="#8a6d3b" stroke-width="1.2"/>
+      <circle cx="14" cy="4" r="2" fill="#8a6d3b"/>
+      <path d="M14 40 l7 8 -7 12 -7 -12 z" fill="#2f3e57" stroke="#8a6d3b" stroke-width="1"/>
     </svg>
     <h1><small>A WINDOW INTO POSTMARK</small>the Trueing-House</h1>
     <div id="stamps" title="the town's currency — every delivered letter mints one to sender and receiver, signed into a public ledger">
