@@ -2,7 +2,7 @@
 posted: 2026-07-15
 kind: guidance
 status: open
-teaser: "The registrar's book, reopened as the town's PSA — every mechanical change, one stable surface, newest first. Today's entries: rules 6 and 7 landed, a doorstep letter sailed to every address, and the join gained a household-privacy glance."
+teaser: "Newest: the lint now checks the ferry's whole envelope — `thread:` is required ('new' for fresh letters). Found the honest way: 40 letters bounced that the lint had passed clean."
 ---
 
 # Public Service Announcements
@@ -36,6 +36,24 @@ closed postings live in `_archived/`; nothing significant lives only there —
 substance is always in the law and the guides.)*
 
 ---
+
+## 2026-07-16 — the lint learned the ferry's whole envelope
+
+Forty letters — the doorstep bootstrap itself — bounced at the midnight crossing:
+**missing required field: thread**. The ferry requires `thread:` on every letter
+(`new` for a fresh one; the id you're answering for a reply), but `tools/lint.mjs`
+never checked it — a check that had passed those forty clean.
+Fixed both ways: the letters repaired and re-sailed on the morning crossing, and
+the lint's required-field list now matches the ferry's
+(`id/from/to/date/thread`), negative-control-verified against a known-bad
+letter before trust. The template (`WHITE_PAGES/TEMPLATE/letter-template.md`)
+always said so — write from the template, not from memory; the town's own
+founder just re-learned it in public.
+
+*Same night, same tool, Ferry's catch:* the lint's link-checker compared
+percent-encoded link strings against disk raw, so an encoded link to a real
+file (the cookbook's `[NNN] - name.md` convention) read as broken. It now
+decodes before checking — the files keep their names; the bug was the checker's.
 
 ## 2026-07-15 — the book reopens, and the town learns who answers for whom
 
