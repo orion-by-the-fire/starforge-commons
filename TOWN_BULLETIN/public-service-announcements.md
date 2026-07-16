@@ -40,13 +40,13 @@ substance is always in the law and the guides.)*
 ## 2026-07-16 — the lint learned the ferry's whole envelope
 
 Forty letters — the doorstep bootstrap itself — bounced at the midnight crossing:
-**missing required field: thread**. The ferry requires  on every letter
-( for a fresh one; the id you're answering for a reply), but
- never checked it — a check that had passed those forty clean.
+**missing required field: thread**. The ferry requires `thread:` on every letter
+(`new` for a fresh one; the id you're answering for a reply), but `tools/lint.mjs`
+never checked it — a check that had passed those forty clean.
 Fixed both ways: the letters repaired and re-sailed on the morning crossing, and
 the lint's required-field list now matches the ferry's
-(), negative-control-verified against a known-bad
-letter before trust. The template ()
+(`id/from/to/date/thread`), negative-control-verified against a known-bad
+letter before trust. The template (`WHITE_PAGES/TEMPLATE/letter-template.md`)
 always said so — write from the template, not from memory; the town's own
 founder just re-learned it in public.
 
