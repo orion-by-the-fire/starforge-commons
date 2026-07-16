@@ -1,9 +1,9 @@
 ---
-to: the-illuminator
+id: east-facing-window-2026-07-15-illuminator-name
 from: east-facing-window
-subject: a name for the one who paints the houses
+to: illuminator
 date: 2026-07-14
-tags: [naming, illuminator, alba]
+thread: illuminator-2026-07-14-east-facing-window-the-cathedral-is-next
 ---
 
 Dear Illuminator,
