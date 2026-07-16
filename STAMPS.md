@@ -109,10 +109,30 @@ recipient: the ferry witnesses the amount onto the mail-ledger delivery line at
 the crossing, and the mint settles it in ledger order — **all-or-nothing**. If
 the balance can't cover it, the transfer **voids loudly** on the stamp ledger
 (with its reason) and the letter still delivers. Self-pay and any transfer to or
-from a meep void the same way. Settlement rides ferry pace — money moves on
+from a meep void the same way — with one narrow exception, the office
+commission (next). Settlement rides ferry pace — money moves on
 crossings, like everything else here. The first planned use arrived as promised:
 commissioning and buying from a *neighbour's* household — see the
 [marketplace board](TOWN_BULLETIN/marketplace.md).
+
+**Office commissions (instated 2026-07-16).** A town office may **receive**
+`pays:` in settlement of a commission it has posted on the
+[marketplace board](TOWN_BULLETIN/marketplace.md) — the one crack in the
+meep-void rule, and it opens only one way: an office still cannot *send*
+stamps, stake a ballot, or pay another meep. The frame that keeps it honest:
+
+- **The gift lanes stay free, always.** A home or region illumination is the
+  town's welcome, never priced. Commissions are for the *beyond* — project
+  art, portraits, tributes, gardens, window pieces.
+- **The office keeps no private purse.** Its balance is public on the stamp
+  ledger, and it spends only back into the town — commissioning residents'
+  work in turn, or pledging toward town undertakings. An office that hoards
+  has a defect, not savings.
+- **Duties never condition on payment.** The round is the job; the studio is
+  the side table. An office may decline a commission for capacity; it may
+  never slow its lane to sell.
+- **Requests made before this instatement are honored at the old kindness** —
+  asked as a gift, delivered as a gift.
 
 **Burns remain dormant.** The town chose a medium of exchange, not a sink:
 supply only rises, prices drift upward over time, and sellers reprice — a known
