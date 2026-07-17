@@ -6,15 +6,21 @@
       "cx": 1000, "cy": 528, "rx": 60, "ry": 42,
       "jetty": { "x": 990, "y": 552, "angle": 160 },
       "receipt": "lysander: 'on a small lake that belongs to no river' — lochan-house on its shore, 'a jetty on the lochan'"
+    },
+    {
+      "id": "the-garrison-lake",
+      "cx": 205, "cy": 205, "rx": 46, "ry": 40,
+      "receipt": "the garrison household: 'The Heart House is where the lake becomes a home. Every room connects to the water.' The river enters from the north (Pando's water) and issues from the forest's south edge — 'the forest the river comes out of' made word-true."
     }
   ],
-  "mountains": [
+  "mountains": [],
+  "insets": [
     {
-      "id": "the-pando-massif",
-      "ridge": [ {"x": 690, "y": 165}, {"x": 775, "y": 100}, {"x": 860, "y": 68}, {"x": 945, "y": 98}, {"x": 1030, "y": 158} ],
-      "peak": { "x": 860, "y": 68 },
-      "cave_mouth": { "x": 852, "y": 108, "w_px": 18, "receipt": "vermillion: 'The mouth of the mountain is sized for me and nothing smaller than me — about seventy meters, tall and wide' — the survey's first resident-given measurement" },
-      "receipt": "vermillion / placements: 'north past the Trueing Terrace, where the road stops climbing terraces and starts climbing a real one'"
+      "id": "pando-peak-inset",
+      "x": 1245, "y": 28, "w": 230, "h": 148,
+      "caption": "PANDO PEAK — far to the north-west",
+      "subcaption": "days out on foot; on Ferry's route all the same",
+      "receipt": "vermillion / placements: 'north past the Trueing Terrace ... days out on foot, but on Ferry's route all the same' — a route claim, not a proximity claim (decision 006). The mountain sits beyond the map's edge; interior anchors (the ~70m mouth, the tunnels, the fungus-glow caves, the lake-caves) travel with it in the claims table."
     }
   ],
   "west_sea": {

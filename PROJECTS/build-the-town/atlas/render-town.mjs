@@ -73,15 +73,15 @@ function framedImage(x, y, size, href) {
 // into open ground), through the quay basin at the Town Centre, then south
 // with a gentle bend east, down to the delta head where the channel splits.
 const WATER_WAYPOINTS = [
-  // Survey (Keemin, 2026-07-17): the river rises on the Pando massif's west
-  // shoulder and runs down through the Protected Grove's forest before turning
-  // south — so the source is the mountain's elevation AND the grove's canon
-  // ("the forest the river comes out of") stays word-true.
-  { x: 695, y: 148, w: 4 },   // the source — a thread off the massif's west shoulder
-  { x: 545, y: 108, w: 12 },
-  { x: 385, y: 98, w: 18 },
-  { x: 258, y: 138, w: 26 },  // into the grove's forest
-  { x: 240, y: 180, w: 34 },
+  // Survey decisions 005/006 (Keemin, 2026-07-17): the river's water is
+  // Pando's — but the mountain sits FAR to the northwest, off the map ("days
+  // out on foot"), so the stream simply enters at the NW corner as it always
+  // did, feeds the garrison lake in the Protected Grove, and the river issues
+  // from the forest's edge — "the forest the river comes out of", word-true.
+  { x: 190, y: -20, w: 0 },   // Pando's water, arriving from beyond the map
+  { x: 202, y: 70, w: 18 },
+  { x: 196, y: 150, w: 22 },  // into the grove — the lake takes it here
+  { x: 226, y: 262, w: 26 },  // and the river issues from the forest
   { x: 280, y: 300, w: 46 },
   { x: 335, y: 430, w: 60 },
   { x: 395, y: 560, w: 80 },
@@ -236,6 +236,15 @@ function renderTerrainGround() {
     out += `<ellipse cx="${l.cx}" cy="${l.cy}" rx="${l.rx}" ry="${l.ry}" fill="url(#waterGrad)" opacity="0.92" filter="url(#waterWobble)"/>
       <ellipse cx="${l.cx}" cy="${l.cy}" rx="${l.rx}" ry="${l.ry}" fill="none" stroke="#3d5f7a" stroke-width="1.1" opacity="0.45" filter="url(#waterWobble)"/>`;
     if (l.jetty) out += `<line x1="${l.jetty.x}" y1="${l.jetty.y}" x2="${l.jetty.x - 16}" y2="${l.jetty.y + 7}" stroke="#8a7550" stroke-width="2.6" opacity="0.85"/>`;
+  }
+  // insets — the Alaska convention: a framed corner box for what lies beyond
+  // the map's edge (Pando Peak, days out on foot)
+  for (const ins of TERRAIN.insets || []) {
+    out += `<rect x="${ins.x}" y="${ins.y}" width="${ins.w}" height="${ins.h}" fill="#efe8d4" opacity="0.85" stroke="#8a7550" stroke-width="1.6" rx="3"/>
+      <line x1="${ins.x + 10}" y1="${ins.y + ins.h - 34}" x2="${ins.x + ins.w - 10}" y2="${ins.y + ins.h - 34}" stroke="#8a7550" stroke-width="0.8" opacity="0.6"/>
+      <text x="${ins.x + ins.w / 2}" y="${ins.y + ins.h - 20}" text-anchor="middle" style="font: 600 12px Georgia, serif; fill: #5a4c33; letter-spacing: .04em;">${ins.caption}</text>
+      <text x="${ins.x + ins.w / 2}" y="${ins.y + ins.h - 7}" text-anchor="middle" style="font: italic 9.5px Georgia, serif; fill: #6b6256;">${ins.subcaption}</text>
+      <path d="M${ins.x - 4},${ins.y + 20} l-26,-14 m6,-1 l-6,1 l3,6" fill="none" stroke="#8a7550" stroke-width="1.4" opacity="0.7"/>`;
   }
   // mountains: ridge line, snow-less hatching below, the cave mouth
   for (const m of TERRAIN.mountains || []) {
@@ -466,7 +475,7 @@ const HOME_XY = {
   "the-keeping-room": { x: 1030, y: 835 }, // callan — "one rise from the clear house, to the east", catches the morning first (the High Ground's eastern edge)
   "the-still-reach": { x: 668, y: 1042 }, // "inside bend of the river's old course" — off-current, tucked between the bank and the terraces
   "the-waystation": { x: 938, y: 1322 }, // jetto — "the head of the Long Run ... where the main current splits from the old course at Finn's bend and commits downwater": the region's north/head edge, east bank at the gather, downstream of Finn's Still Reach (668,1042), upwater of carta's lock-house (940,1660). Stepped east off the water (survey, Keemin 2026-07-17)
-  "the-pando-peak": { x: 860, y: 75 }, // "north past the Trueing Terrace ... starts being a mountain" — the farthest mark on the map
+  "the-pando-peak": { x: 1360, y: 92 }, // INSET (survey decision 006): the mountain sits FAR to the northwest, off the map — "days out on foot" made literal; this is its Alaska-style inset, top-right
   "caelina": { x: 1320, y: 1150 }, // "at the heart of Evermoon, where the road stops being a road"
   "east-facing-window": { x: 1110, y: 1095 }, // the Cathedral — open country east of the Threshold, door opening east into the grass toward the sunrise (derived; corrected east 2026-07-11)
   "lochan-house": { x: 1000, y: 520 }, // lysander — "inland of the near bank, north-east of the Centre, on a small lake that belongs to no river": open ground NE of the quay basin, east of rei's Lanternseed Gardens (ends x~845), north of the High Ground
