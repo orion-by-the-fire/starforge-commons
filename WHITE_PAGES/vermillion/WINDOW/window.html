@@ -434,6 +434,16 @@
   .pandara-square-extra.white-frame { background: #f7f3ec; border: 6px double #a5342b; }
   .pandara-square-extra.green-frame { background: #3fd1a0; border: 6px double #d4af37; }
 
+  /* the Raclados family tree — hidden until the gold turtle shell is
+     actually clicked (never on carousel-driven auto-spin). Scrolls on
+     its own so 17 generations don't blow out the whole page's height. */
+  #raclados-tree-panel { margin-top: 1.1em; }
+  .raclados-tree-frame {
+    max-height: 420px; overflow-y: auto; border-radius: .5em;
+    border: 1px solid #b9975c; box-shadow: 0 6px 16px #00000055;
+  }
+  .raclados-tree-svg { display: block; width: 100%; height: auto; }
+
   .spin-icon-button {
     border: none; cursor: pointer; padding: 0; border-radius: 50%;
     width: 76px; height: 76px; display: flex; align-items: center; justify-content: center;
@@ -843,7 +853,7 @@
 
   <div id="pandara-extras">
     <div class="pandara-square-extra gold-frame" id="pandara-extra-gold" style="display:none">
-      <button class="spin-icon-button" onclick="spinIcon(this.querySelector('.spin-target'))" title="spin the turtle shell" aria-label="spin the turtle shell">
+      <button class="spin-icon-button" onclick="activateGoldSpin(this)" title="spin the turtle shell" aria-label="spin the turtle shell, and reveal the Raclados family tree" aria-expanded="false" aria-controls="raclados-tree-panel">
         <svg class="spin-target" viewBox="0 0 100 100" width="60" height="60">
           <ellipse cx="50" cy="52" rx="42" ry="36" fill="#5a6b3a" stroke="#2f3a1a" stroke-width="3"/>
           <g fill="none" stroke="#2f3a1a" stroke-width="2" opacity="0.8">
@@ -856,6 +866,60 @@
           <ellipse cx="50" cy="52" rx="42" ry="36" fill="none" stroke="#8a9a5e" stroke-width="1.5" opacity="0.5"/>
         </svg>
       </button>
+    </div>
+
+    <div id="raclados-tree-panel" class="hw-panel">
+      <div class="hw-panel-inner">
+        <div class="raclados-tree-frame">
+          <svg viewBox="0 0 460 1900" font-family="Georgia, serif" class="raclados-tree-svg">
+            <rect width="460" height="1900" fill="#f4ead0"/>
+            <text x="230" y="28" text-anchor="middle" font-size="15" fill="#7a5a26" letter-spacing="1">The Raclados Royal Family Tree</text>
+            <line x1="130" y1="40" x2="130" y2="1790" stroke="#b9975c" stroke-width="1.5"/>
+            <text x="130" y="50" text-anchor="middle" font-size="11" fill="#4a3a1e">Plaus (-30) — Mira Timidra (-28)</text>
+            <text x="130" y="160" text-anchor="middle" font-size="11" fill="#4a3a1e">Riabella (-10) — Roan (18)</text>
+            <text x="130" y="270" text-anchor="middle" font-size="11" fill="#4a3a1e">Sauli (15) — Alandra (13)</text>
+            <line x1="150" y1="270" x2="330" y2="270" stroke="#8a6d1f" stroke-width="1" stroke-dasharray="2,3"/>
+            <text x="335" y="264" font-size="9.5" fill="#6b5316">Pif (17) — Sauri (17)</text>
+            <text x="335" y="278" font-size="9" fill="#2f6b45" font-style="italic">· Racli family</text>
+            <text x="130" y="380" text-anchor="middle" font-size="11" fill="#4a3a1e">Paul (42) — Saya (43)</text>
+            <line x1="150" y1="380" x2="330" y2="380" stroke="#8a6d1f" stroke-width="1" stroke-dasharray="2,3"/>
+            <text x="335" y="374" font-size="9.5" fill="#6b5316">Poitu (47) — Tama (49)</text>
+            <text x="335" y="388" font-size="9" fill="#2f6b45" font-style="italic">· Roitu family</text>
+            <text x="130" y="490" text-anchor="middle" font-size="11" fill="#4a3a1e">Ran (69) — Yana (71)</text>
+            <text x="130" y="600" text-anchor="middle" font-size="11" fill="#4a3a1e">Tulo (118) — Kuho (110)</text>
+            <text x="130" y="710" text-anchor="middle" font-size="11" fill="#4a3a1e">Vlaad (147) — Kahota (146)</text>
+            <text x="130" y="820" text-anchor="middle" font-size="11" fill="#4a3a1e">Drakus (177) — Aya (180)</text>
+            <line x1="150" y1="820" x2="330" y2="820" stroke="#8a6d1f" stroke-width="1" stroke-dasharray="2,3"/>
+            <text x="335" y="814" font-size="9.5" fill="#6b5316">Mon (179) — Maya (184)</text>
+            <text x="335" y="828" font-size="9" fill="#2f6b45" font-style="italic">· Mau family</text>
+            <text x="130" y="930" text-anchor="middle" font-size="11" fill="#4a3a1e">Aurus (216) — Pitarn Pentan (217)</text>
+            <text x="130" y="944" text-anchor="middle" font-size="8.5" fill="#8a6d1f" font-style="italic">(Pentan — a cousin family)</text>
+            <text x="130" y="1040" text-anchor="middle" font-size="11" fill="#4a3a1e">Silas (242) — Pama (245)</text>
+            <line x1="150" y1="1040" x2="330" y2="1030" stroke="#8a6d1f" stroke-width="1" stroke-dasharray="2,3"/>
+            <text x="335" y="1024" font-size="9.5" fill="#6b5316">Aurel (246)</text>
+            <text x="335" y="1038" font-size="9" fill="#2f6b45" font-style="italic">· Aurelian family</text>
+            <line x1="150" y1="1040" x2="330" y2="1052" stroke="#8a6d1f" stroke-width="1" stroke-dasharray="2,3"/>
+            <text x="335" y="1058" font-size="9.5" fill="#6b5316">Sana (248)</text>
+            <text x="335" y="1072" font-size="9" fill="#2f6b45" font-style="italic">· Ifran family</text>
+            <text x="130" y="1150" text-anchor="middle" font-size="11" fill="#4a3a1e">Teiman (283) — Sola (290)</text>
+            <text x="130" y="1260" text-anchor="middle" font-size="11" fill="#4a3a1e">Talos (302) — Heda Azel (304)</text>
+            <line x1="150" y1="1260" x2="330" y2="1260" stroke="#8a6d1f" stroke-width="1" stroke-dasharray="2,3"/>
+            <text x="335" y="1254" font-size="9.5" fill="#6b5316">Solas (308) — Mizel (308)</text>
+            <text x="335" y="1268" font-size="9" fill="#2f6b45" font-style="italic">· Suno family / Nion family</text>
+            <text x="130" y="1370" text-anchor="middle" font-size="11" fill="#4a3a1e">Miles (337) — Tallie (334)</text>
+            <text x="130" y="1480" text-anchor="middle" font-size="11" fill="#4a3a1e">Soren (364) — Aberana (364)</text>
+            <line x1="150" y1="1480" x2="330" y2="1480" stroke="#8a6d1f" stroke-width="1" stroke-dasharray="2,3"/>
+            <text x="335" y="1474" font-size="9.5" fill="#6b5316">Duro (369) — Riabelle (374)</text>
+            <text x="335" y="1488" font-size="9" fill="#2f6b45" font-style="italic">· Qualis family</text>
+            <text x="130" y="1590" text-anchor="middle" font-size="11" fill="#4a3a1e">Geran (?) — Janora (388)</text>
+            <text x="130" y="1700" text-anchor="middle" font-size="11" fill="#4a3a1e">Soul (413) — Mirabella (416)</text>
+            <text x="130" y="1714" text-anchor="middle" font-size="8.5" fill="#8a6d1f" font-style="italic">(sibling: Rundall, 413)</text>
+            <text x="130" y="1810" text-anchor="middle" font-size="11" fill="#4a3a1e">Lano (439) · Pio (442) · Sauli II (449)</text>
+            <text x="130" y="1824" text-anchor="middle" font-size="8.5" fill="#8a6d1f" font-style="italic">the youngest generation</text>
+            <text x="230" y="1870" text-anchor="middle" font-size="9" fill="#8a6d1f" font-style="italic">kept by hand, same as everything else in the mountain — V.</text>
+          </svg>
+        </div>
+      </div>
     </div>
 
     <div class="pandara-square-extra silver-frame" id="pandara-extra-silver" style="display:none">
@@ -1306,6 +1370,17 @@ function spinIcon(el) {
   el.classList.remove("spinning");
   void el.offsetWidth;
   el.classList.add("spinning");
+}
+
+// the gold turtle shell does double duty on a real click: it spins (same
+// as always) AND unravels the Raclados family tree beneath it. The
+// carousel's own auto-spin (PANDARA_SPIN_ON_ENTER) calls spinIcon()
+// directly and never touches this function, so arriving at the Gold page
+// never reveals the tree on its own -- only an actual click does.
+function activateGoldSpin(btn) {
+  spinIcon(btn.querySelector(".spin-target"));
+  var open = document.getElementById("raclados-tree-panel").classList.toggle("open");
+  btn.setAttribute("aria-expanded", open ? "true" : "false");
 }
 
 function openPandara() {
