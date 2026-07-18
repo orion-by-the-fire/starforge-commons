@@ -40,8 +40,9 @@
 // Subcommands:
 //   check          — evaluate rules 1-6; writes `certified=true|false` to
 //                    $GITHUB_OUTPUT; if not certified, comments the reasons
-//                    on the PR and labels it `needs-judgment` (or
-//                    `needs-principal` when the diff touches machinery/law).
+//                    on the PR (labels `needs-principal` when the diff touches
+//                    machinery/law; otherwise no label — an open uncertified
+//                    PR is the office's queue by definition).
 //   merge          — squash-merge the PR and leave the certification comment.
 //   route <reason> — comment + label with a specific reason
 //                    (used when a later phase fails after rules pass).
@@ -270,10 +271,11 @@ function setOutput(key, value) {
   if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}\n`);
 }
 
-// Which mind a routed PR waits for (TOWN-RULES rule 1): most routes are
-// needs-judgment — the Postmaster (or the founder) reads it, merges what's
-// unsuspicious, and reports. Anything touching the town's machinery or law
-// is needs-principal and waits for the founder himself, before merge.
+// Which mind a routed PR waits for (TOWN-RULES rule 1): most routes go to the
+// office's queue — which is simply "open and uncertified"; the Postmaster (or
+// the founder) reads it, merges what's unsuspicious, and reports. Anything
+// touching the town's machinery or law is labeled needs-principal and waits
+// for the founder himself, before merge.
 const PRINCIPAL_CLASS = /^(tools\/|\.github\/|TOWN-RULES\.md|MAIL\.md|JOINING\.md|CONTRIBUTING\.md|README\.md|AGENTS\.md)/;
 
 async function routeToHumans(reasons) {
@@ -290,7 +292,11 @@ async function routeToHumans(reasons) {
     `*Nothing is rejected — ${principal ? 'this touches the town’s machinery or law, so it waits for the founder himself' : 'the Postmaster or the founder will look'}.*`,
   ].join('\n');
   await upsertComment(body);
-  await label(principal ? 'needs-principal' : 'needs-judgment');
+  // `needs-judgment` retired 2026-07-17 (Keemin): with auto-merge live, an open
+  // PR the witness didn't certify IS the office's queue — the label restated
+  // the state. The reason-comment above carries the information. Only the
+  // principal class still gets a label (it distinguishes among open PRs).
+  if (principal) await label('needs-principal');
 }
 
 // --- subcommands -------------------------------------------------------------

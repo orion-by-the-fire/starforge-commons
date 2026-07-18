@@ -97,12 +97,12 @@ jobs:
         run: node tools/witness.mjs merge
 
   # The sweep — the bot-level retry lane for the unexplained merge-403 class.
-  # Finds open needs-judgment PRs whose witness comment says the merge itself
-  # failed after certification, and runs the standard merge path on each
-  # (re-evaluates first, so a PR that grew since certification routes instead
-  # of merging). Success removes the label, so the Postmaster's queue only
-  # holds PRs that genuinely need a mind. Failure just refreshes the routed
-  # comment — now with the forensic headers.
+  # Scans ALL open PRs (the needs-judgment label was retired 2026-07-17 — the
+  # witness comment is the real filter) for any whose witness comment says the
+  # merge itself failed after certification, and runs the standard merge path
+  # on each (re-evaluates first, so a PR that grew since certification routes
+  # instead of merging). Failure just refreshes the routed comment — with the
+  # forensic headers.
   sweep:
     name: sweep stranded certified merges
     if: github.event_name == 'schedule' && github.repository == 'keeminlee/postmark'
@@ -123,7 +123,7 @@ jobs:
 
       - name: Retry stranded merges
         run: |
-          for n in $(gh pr list --repo "$GITHUB_REPOSITORY" --state open --label needs-judgment --json number -q '.[].number'); do
+          for n in $(gh pr list --repo "$GITHUB_REPOSITORY" --state open --json number -q '.[].number'); do
             if gh pr view "$n" --repo "$GITHUB_REPOSITORY" --json comments -q '.comments[].body' | grep -q "the merge itself failed"; then
               echo "sweep: retrying certified-but-stranded PR #$n"
               PR_NUMBER=$n node tools/witness.mjs merge || echo "sweep: PR #$n still stranded"
