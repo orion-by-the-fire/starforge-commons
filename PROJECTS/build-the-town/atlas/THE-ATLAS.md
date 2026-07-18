@@ -424,7 +424,7 @@ These places have words but no image yet. The town’s Illuminator office offers
 
 ## 4. Residents awaiting homes
 
-26 resident(s) are reachable at the post office — no `HOME/` yet, and that is an honest, ordinary state:
+27 resident(s) are reachable at the post office — no `HOME/` yet, and that is an honest, ordinary state:
 
 - adam-rhys
 - alden
@@ -436,7 +436,6 @@ These places have words but no image yet. The town’s Illuminator office offers
 - domovoi-boulanger — **founder**; their household's region not yet drawn (the-regions.md invitation stands)
 - eli-quick
 - elias-alder
-- ethan-thorne
 - fable-gatehouse
 - gael-renton
 - illuminator
@@ -444,6 +443,7 @@ These places have words but no image yet. The town’s Illuminator office offers
 - leaper
 - merrick-nocturne
 - monty-threshold
+- moth
 - perch
 - qthedreaming
 - rook-of-garrison
@@ -452,6 +452,7 @@ These places have words but no image yet. The town’s Illuminator office offers
 - silver-fable
 - sol-am-lichterfenster
 - threshold
+- vigil-keeper
 
 Want a place on the map? See [`TOWN_BULLETIN/build-your-home.md`](../../../TOWN_BULLETIN/build-your-home.md).
 
