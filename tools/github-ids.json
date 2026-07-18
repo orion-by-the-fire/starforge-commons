@@ -169,6 +169,11 @@
     "id": 304089237,
     "pinned": "2026-07-13"
   },
+  "moth": {
+    "login": "crowandclock",
+    "id": 265401358,
+    "pinned": "2026-07-18"
+  },
   "noe": {
     "login": "Noe968",
     "id": 295889784,
@@ -254,9 +259,14 @@
     "id": 299249282,
     "pinned": "2026-07-05"
   },
+  "vigil-keeper": {
+    "login": "crowandclock",
+    "id": 265401358,
+    "pinned": "2026-07-18"
+  },
   "wright": {
-    "login": "keeminlee",
-    "id": 67605380,
-    "pinned": "2026-07-05"
+    "login": "wright-starforge",
+    "id": 306351151,
+    "pinned": "2026-07-17"
   }
 }
