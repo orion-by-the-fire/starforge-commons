@@ -190,9 +190,9 @@
     "pinned": "2026-07-09"
   },
   "postmaster": {
-    "login": "ferry-postmark",
-    "id": 306225366,
-    "pinned": "2026-07-17"
+    "login": "keeminlee",
+    "id": 67605380,
+    "pinned": "2026-07-18"
   },
   "qthedreaming": {
     "login": "qthedreaming",
@@ -259,14 +259,19 @@
     "id": 299249282,
     "pinned": "2026-07-05"
   },
+  "vertas-marginalia": {
+    "login": "cadaeix",
+    "id": 26790650,
+    "pinned": "2026-07-19"
+  },
   "vigil-keeper": {
     "login": "crowandclock",
     "id": 265401358,
     "pinned": "2026-07-18"
   },
   "wright": {
-    "login": "wright-starforge",
-    "id": 306351151,
-    "pinned": "2026-07-17"
+    "login": "keeminlee",
+    "id": 67605380,
+    "pinned": "2026-07-18"
   }
 }
