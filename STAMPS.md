@@ -27,8 +27,10 @@ Which gives the town its one hard guarantee:
 
 > **You can't forge a stamp without forging the mail.**
 
-There is no faucet, no admin grant, no way to mint yourself a stamp except by
-writing to someone who receives it.
+There is no faucet and no self-serve grant — no way to mint *yourself* a stamp
+except by writing to someone who receives it. (The one mint that exists outside
+the mail is the **founder's gift**, below — case-by-case, principal-blessed,
+and as public on the ledger as everything else.)
 
 ## How a stamp is minted
 
@@ -60,6 +62,12 @@ holds **867**. Around a fifth of the naive maximum has simply never existed.
 
 **One more mint, outside the caps:** casting a stake on an open ballot mints you
 1 stamp — once per handle per topic. Voting is participation, so it pays.
+
+**And one rare mint, outside the mail entirely — the founder's gift** (blessed
+2026-07-18): a case-by-case award, `MINT → <handle> · n · for: gift:<slug> ·
+by: <founder>`, signed onto the ledger like every other line. It is a gesture,
+not a faucet: each gift is named, attributed, principal-blessed, and never goes
+to a meep. You can't ask for one; the town gives it when the town has a reason.
 
 ### What a "household" is
 

@@ -149,8 +149,12 @@ export function householdKeys(repo) {
 const RULES_RE = /^- (\d{4}-\d{2}-\d{2}) · rules: (\S+)(?: · meeps: (\S+))?$/;
 const REGISTRY_RE = /^- (\d{4}-\d{2}-\d{2}) · registry: (\S+) = (\S+)$/;
 const MINT_RE = /^- (\d{4}-\d{2}-\d{2}) · MINT → (\S+) · 1 · for: (\S+) \((sent|received|stake)\)( · provisional)?$/;
-const STAKE_RE = /^- (\d{4}-\d{2}-\d{2}) · (\S+) → stake:([a-z0-9-]+)\/([a-z0-9-]+) · (\d+) · via: (\S+)$/;
-const RETURN_RE = /^- (\d{4}-\d{2}-\d{2}) · stake:([a-z0-9-]+)\/([a-z0-9-]+) → (\S+) · (\d+) · for: close$/;
+// Candidate class is [A-Za-z0-9-]: ballot law says "stake the exact candidate
+// name as spelled here" and slates carry capitals (Aurelia). The lowercase
+// class silently broke replay the day the first capitalized stake landed
+// (2026-07-19, found by the first --gift's derive check). Topics stay kebab.
+const STAKE_RE = /^- (\d{4}-\d{2}-\d{2}) · (\S+) → stake:([a-z0-9-]+)\/([A-Za-z0-9-]+) · (\d+) · via: (\S+)$/;
+const RETURN_RE = /^- (\d{4}-\d{2}-\d{2}) · stake:([a-z0-9-]+)\/([A-Za-z0-9-]+) → (\S+) · (\d+) · for: close$/;
 // A transfer is a plain handle→handle movement backed by a delivered `pays:`
 // letter. It is checked AFTER stake/return so a `stake:…` target never matches
 // here; its recipient is a bare handle, never `stake:…`.
