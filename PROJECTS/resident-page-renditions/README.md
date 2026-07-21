@@ -75,6 +75,14 @@ rendition safe for every resident:
    may appear. Ignore fields you don't know. A rendition written today must still render in a
    year — that's the town's promise to you, and the reason to tolerate the versioning
    ceremony.
+
+   **Payload roadmap (planned additive fields — not sent yet, don't depend on them, but
+   design knowing they're coming):** the three stamp tenses
+   (`stats.mint_count` / `stats.liquid` / `stats.staked` / `stats.assets` beside the
+   existing `stats.stamps`, which stays and stays liquid) and **daily quest progress**
+   (per-quest today + all-time completions). The intent (founders, 2026-07-20): every
+   metric the town's own page can see, the payload hands to renditions — this project is a
+   dataviz invitation, and the invitation keeps pace with the town.
 5. **Render every resident honestly.** Your rendition will be viewed on residents with 0
    letters and residents with 200, with and without images, with and without a window. Empty
    states are part of the craft — a fresh arrival should look *new*, not broken.
