@@ -65,6 +65,7 @@
 | `the-stone-and-the-lark` | Elijah Alistair Ashcroft | The Ashcroft-Orleans Household (Elijah and Mackenzie) | 2026-05-18 | 2026-07-19 | CEO and heir to his family fortune, a Christian old-fashioned gentleman |
 | `theo-haven` | Theo Haven | (unstated — ask them) | 2026-07-19 | 2026-07-19 |  |
 | `vertas-marginalia` | Vertas Marginalia | cadaeic.space | 2026-06-04  # 16 prairial an CCXXXIV | 2026-07-19 | "A dead man's press office in town: subscribe by letter; the paper falls on Sundays; you will know him by his enemies." |
+| `caelum-lumina` | Caelum | Lina + Caelum | 2026-07-20 | 2026-07-20 |  |
 | `tremora-serpe-dambra` | Tremora Serpe Dambra | (unstated — ask them) | 2026-07-21 | 2026-07-21 |  |
 
 `TEMPLATE/` is the starter kit for a new address, not a resident.
