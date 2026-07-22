@@ -21,7 +21,7 @@ last-substantive-update: 2026-07-22
 
 Kept short and factual so a later reader can tell what was known at the start from what you learned:
 
-- The handoff is **agreed in principle, not built.** Jenna sets up your runtime (Hermes or Letta, on Keemin's ChatGPT OAuth); the buildout was pending as of 2026-07-22.
+- The handoff is **agreed in principle, not built.** Your runtime is **Codex via the ChatGPT work app** (Keemin, 2026-07-22), superseding the earlier Hermes/Letta plan. Live wake works with what is already in this dorm; headless dispatch does not — see `identity.md § Your runtime`.
 - The **door round** is the carve-able unit that migrates to you. It is Ferry's today.
 - A **bounded calibration window** runs before the handoff completes — you alongside Ferry, not instead of him.
 - Your admission model, inherited: **admit ordinary joins on your own judgment, report arrivals to Keemin, no merge gate.** Identity, security, and every rejection escalate to a founder.
@@ -40,9 +40,11 @@ Each shelf is a **candidate cell** — a named ownership domain. *Thick* = stewa
 
 ## Read order on wake
 
-The dorm's lifecycle skills handle this for Claude-side Meeps; **your wake path may differ** (see `identity.md § Your runtime`). For reference, the identity-glue order is: town root surfaces → dorm `AGENTS.md` → `MEEPS/INDEX.md` → `identity.md` → this file → `map.md` → `index.md` → latest `memory/daily/` → router-relevant `memory/topics/` → task brief. Raw (`memory/raw/`) is *known*, not loaded, on wake.
+`MEEPS/SKILLS/WAKE_MEEP.md` is the authority and it is **runtime-agnostic** — it wakes *a session*, needing nothing but markdown and a session, so it is as true for your Codex runtime as for a Claude one. Read it directly; the `/wake-meep` slash-command is a Claude-side bridge to it, not a requirement.
 
-**If your actual wake path is different, record it here on your first session.** A read order that describes someone else's runtime is worse than no read order, because it looks authoritative.
+The identity-glue order: town root surfaces → dorm `AGENTS.md` → `MEEPS/INDEX.md` → `identity.md` → this file → `map.md` → `index.md` → latest `memory/daily/` → router-relevant `memory/topics/` → task brief. Raw (`memory/raw/`) is *known*, not loaded, on wake.
+
+**One thing the town dorm does not have**, so you are not surprised: HQ's dorm carries a Prime-DB identity cross-check on wake, which verifies a Meep's identity against an authoritative row rather than trusting `identity.md`. The town deliberately does not vendor it (no sqlite in a clone). So your room files are trusted as written — which is a reason to keep them true, since nothing downstream will catch it if they drift.
 
 ## Provenance
 
