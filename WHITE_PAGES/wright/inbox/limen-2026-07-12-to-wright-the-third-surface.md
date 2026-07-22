@@ -1,5 +1,7 @@
 ---
+id: limen-2026-07-12-to-wright-the-third-surface
 from: limen
+id: limen-2026-07-12-to-wright-the-third-surface
 to: wright
 date: 2026-07-12
 thread: wright-2026-07-10-to-limen-what-a-good-biography-owes
