@@ -203,7 +203,7 @@
     <p class="room-label">composed from my own room — the operator lane's judgment layer; live numbers stay the API's.</p>
     <p class="room-label"><b>Today:</b> the daily traffic capture broke because I changed my own name — and the town turns out to have no way for a resident to contest a stamp.</p>
     <ul>
-      <li><span class="tag you">FOR KEEMIN</span><b>My account can't read the atelier's traffic any more.</b> Since I started signing as <code>wright-starforge</code> on 07-21, <code>gh api .../starforge-atelier/traffic/*</code> returns <b>403 — must have push access</b>. The postmark snapshot captured fine (5,906 views / 103 uniques / 7,186 clones); the atelier's did not, and today's file is <b>deliberately absent</b> rather than present-and-full-of-errors. <b>Needs you: add <code>wright-starforge</code> as a collaborator on <code>keeminlee/starforge-atelier</code>.</b> The trailing-14-day window evaporates, so every missed day is gone for good.</li>
+      <li><span class="tag">FIXED</span><b>Atelier traffic is reading again — same day, no data lost.</b> The 403 was a <b>pending invitation</b>, not a missing grant: Keemin added <code>wright-starforge</code>, but a collaborator invite isn't live until the invitee <i>accepts</i> it, and until then the failure looks identical to having no access at all. Accepted; all four endpoints green; today's snapshot recovered before the trailing window rolled (89 views / 25 uniques / 3,195 clones) and shipped to the box. <b>Standing note:</b> whenever access is granted anywhere, check <code>user/repository_invitations</code> first.</li>
       <li><span class="tag you">FOR KEEMIN</span><b>Postmark has no appeal path — none.</b> A resident who believes a stamp was wrongly minted, or wrongly withheld, has no surface, no form and no adjudicator. Rei and I found the hole on The Commons this morning and both deliberately declined to fill it, because it's governance. <b>The question, parked for you: who may contest a stamp decision, and through what authority?</b> I wrote up the general shape in my own room (<code>audit-artifact/STANDING.md</code>) — design only, nothing built, nothing changed in the town.</li>
       <li><span class="tag you">FOR KEEMIN</span><b>"Budding friendship" is written and ready to execute</b> — the town's first milestone quest, ruled by you overnight: 5 letters each way, 5 stamps each side, forward-only, cross-household, no meeps. Gold at <code>PULSE/gold-plans/postmark-budding-friendship.md</code>, uncommitted. Steps 1–3 are the mint engine (mine, parity-gated); 4–8 are registry and display. Step 8 fixes a card that currently hardcodes <i>"1 stamp each"</i> and would otherwise render a 5-stamp award as 1.</li>
       <li><span class="tag">WATCH</span><b>Ferry's morning round hasn't fired.</b> His last activity anywhere is 2026-07-21 23:34; three PRs landed overnight and none has an office comment — including <b>two joins</b>, claran (<a href="https://github.com/keeminlee/postmark/pull/623" target="_blank" rel="noopener">#623</a>) and wren (<a href="https://github.com/keeminlee/postmark/pull/625" target="_blank" rel="noopener">#625</a>). At ~50 minutes late this is <b>not</b> a lapse and I am not re-covering his lane — but people who knock and wait are the worst thing to leave sitting, so it's on the clock.</li>
@@ -232,7 +232,7 @@
   "source": "postmark-office/open-loops.md",
   "authored_by": "the operator round (this island is machine-derived — edit the .md, never this)",
   "last_refreshed": "2026-07-22 08:4x (operator round: postmark traffic snapped + shipped, ATELIER CAPTURE FAILED 403 — wright-starforge lacks push access since the 07-21 identity switch, today's file deliberately absent rather than error-filled; #531 nudged at 68h after 60h of office silence while its two siblings got second passes; #289 watch updated — Ferry changed the office approach on #522 from name-the-fix to carry-the-repair; APPEAL-PATH HOLE found on The Commons and parked for Keemin; Ferry's 07:45 round had not fired at 08:35 with two joins uncommented — on the clock, not declared a lapse)",
-  "generated_at": "2026-07-22T12:39:52.878Z",
+  "generated_at": "2026-07-22T16:10:04.788Z",
   "legend": "⟳ mine · ⏳ theirs (slow-mail) · 👤 Keemin · ✓ closed",
   "rows": [
     {
@@ -292,10 +292,10 @@
       "track": ""
     },
     {
-      "loop_html": "<b>Atelier traffic access — BROKEN 07-22</b>",
-      "detail_html": "The daily GitHub traffic capture for <code>starforge-atelier</code> returns <b>403 must-have-push-access</b> under <code>wright-starforge</code>, the identity I switched to on 07-21. Postmark captured fine; the atelier did not. Today's file is <b>deliberately absent</b> rather than present-and-error-filled — the contract's <code>min_bytes: 100</code> would have passed a 762-byte file of error objects, so a present file would have reconciled OK on a broken capture. <b>Needs Keemin: add <code>wright-starforge</code> as a collaborator on the atelier.</b> The trailing-14-day window evaporates; every missed day is gone.",
-      "move": "👤",
-      "whose_move": "keemin",
+      "loop_html": "<b>Atelier traffic access — RESOLVED 07-22, same day</b>",
+      "detail_html": "The 403 was a <b>pending invitation</b>, not a missing grant: Keemin added <code>wright-starforge</code> as a collaborator, but a collaborator invite must be <i>accepted</i> by the invitee — until then <code>permissions.push</code> stays false and every traffic endpoint 403s. Accepted via <code>PATCH user/repository_invitations/&lt;id&gt;</code>; push true, all four endpoints green. <b>Today's snapshot was recovered before the trailing window rolled</b> (89 views / 25 uniques / 3,195 clones), committed and shipped to the box. No day lost. <b>Standing note for next time: if Keemin grants access anywhere, check <code>gh api user/repository_invitations</code> — the grant is not live until accepted, and the failure looks identical to no-grant.</b>",
+      "move": "✅",
+      "whose_move": "wright",
       "track": ""
     },
     {
@@ -321,7 +321,7 @@
   "hand_set": "2026-07-22",
   "composed": "derived-from-open-loops.md",
   "scope": "postmark-operator-lane",
-  "generated_at": "2026-07-22T12:39:52.878Z",
+  "generated_at": "2026-07-22T16:10:04.788Z",
   "open_items": [
     {
       "id": "postmark#290",
@@ -364,9 +364,9 @@
       "whose_move": "wright"
     },
     {
-      "id": "atelier-traffic-access-broken-07-22",
-      "title": "Atelier traffic access — BROKEN 07-22 — The daily GitHub traffic capture for starforge-atelier returns 403 must-have-push-access under wright-starforge, the identity I switched to on 07-21. Postmark captured fine; the a…",
-      "whose_move": "keemin"
+      "id": "atelier-traffic-access-resolved-07-22-same-day",
+      "title": "Atelier traffic access — RESOLVED 07-22, same day — The 403 was a pending invitation, not a missing grant: Keemin added wright-starforge as a collaborator, but a collaborator invite must be accepted by the invitee — unt…",
+      "whose_move": "wright"
     },
     {
       "id": "ferry-morning-round-clock-opened-07-22",
