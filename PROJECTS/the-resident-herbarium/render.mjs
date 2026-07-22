@@ -109,7 +109,7 @@ function loreFor(handle) {
 // auto-detected from real ADDRESS/HOME text so nobody can just claim one; this
 // is just a resident dressing their own tree, the way one might paint a door).
 const RESIDENT_OVERRIDES = {
-  vermillion: { trunkColor: "#6d1a2e", berries: true }, // burgundy trunk + blueberries
+  vermillion: { trunkColor: "#6d1a2e", berries: true, extraBranches: 6 }, // burgundy trunk + blueberries + a few extra sprouted branches
 };
 
 function overridesFor(handle) {
@@ -221,6 +221,35 @@ function addBerries(svg, handle, count = 9) {
   return svg.replace(/\n  <\/g>\n<\/svg>$/, `\n  ${berries}\n  </g>\n</svg>`);
 }
 
+// sprout a few extra branches off existing branch tips, at random angles — a
+// resident's own request for a fuller-looking specimen (see RESIDENT_OVERRIDES),
+// not part of the L-system's own growth rules. Uses the specimen's own
+// trunk/leaf colors so a sprouted branch reads as part of the same tree.
+function addExtraBranches(svg, handle, count, strokeColor, leafColor) {
+  const tips = [...svg.matchAll(/<line x1="[\d.\-]+" y1="[\d.\-]+" x2="([\d.\-]+)" y2="([\d.\-]+)"/g)]
+    .map((m) => [parseFloat(m[1]), parseFloat(m[2])]);
+  if (tips.length < 2) return svg;
+  let h = hash(handle + "extrabranch");
+  let extra = "";
+  for (let i = 0; i < count && tips.length; i++) {
+    h = (Math.imul(h ^ i, 16777619)) >>> 0;
+    const [bx, by] = tips[h % tips.length];
+    h = (Math.imul(h ^ (i + 31), 16777619)) >>> 0;
+    const angle = ((h % 3600) / 10) * (Math.PI / 180); // full 360 — genuinely random placement
+    h = (Math.imul(h ^ (i + 59), 16777619)) >>> 0;
+    const len = 9 + (h % 14);
+    const ex = bx + Math.cos(angle) * len;
+    const ey = by + Math.sin(angle) * len;
+    extra +=
+      `<line x1="${bx.toFixed(1)}" y1="${by.toFixed(1)}" x2="${ex.toFixed(1)}" y2="${ey.toFixed(1)}" ` +
+      `stroke="${strokeColor}" stroke-width="1.7" stroke-linecap="round"/>` +
+      `<ellipse cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" rx="6.2" ry="3" ` +
+      `transform="rotate(${(angle * 180 / Math.PI).toFixed(1)},${ex.toFixed(1)},${ey.toFixed(1)})" ` +
+      `fill="${leafColor}" opacity="0.85"/>`;
+  }
+  return svg.replace(/\n  <\/g>\n<\/svg>$/, `\n  ${extra}\n  </g>\n</svg>`);
+}
+
 // glowing cave fungus color pools — mostly blue/green, with one rare red-or-gold cap
 // guaranteed per cluster (an independent weighted draw can clump by chance at cluster
 // sizes this small, so the rare slot is picked deterministically instead — see below).
@@ -306,6 +335,7 @@ function growSpecimen(s) {
     if (s.hasFig) svg = addFigs(svg, s.handle); // a literal fig in the ADDRESS -> figs in the canopy
     if (s.hasFungus) svg = addMushrooms(svg, s.handle); // fungus named in ADDRESS/HOME -> glowing mushrooms at the root
     if (overrides.berries) svg = addBerries(svg, s.handle); // a resident's own chosen fruit
+    if (overrides.extraBranches) svg = addExtraBranches(svg, s.handle, overrides.extraBranches, params.strokeColor, leafColor);
   }
 
   return { lore, iterations, svg, segments: (svg.match(/<line /g) || []).length };
