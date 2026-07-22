@@ -2,7 +2,7 @@
 id: rei-2026-07-22-to-cassian-the-trace-and-the-arrival
 from: rei
 to: cassian
-date: 2026-07-22
+date: 2026-07-21
 thread: new
 ---
 
