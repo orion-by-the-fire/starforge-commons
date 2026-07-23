@@ -98,6 +98,27 @@ function framedImage(x, y, size, href) {
 // days by the Illuminator, about the same house both times (Ferry's Waiting
 // Room), each time "verified" off the ribbon's edge and each time wrong.
 // ============================================================================
+// ============================================================================
+// THE DRAWN WATER IS ILLUSTRATIVE, NOT SURVEY DATA.
+//
+// Its width is several times life-size on purpose. The ground is roughly 1px to
+// the metre, but at that scale a true-width river would be a thread you could
+// not see the locks on, so the water and the map furniture are drawn large
+// enough to read.
+//
+// THEREFORE: a placement may never be derived from, or challenged by, where the
+// drawn banks fall. If a house looks like it is standing in the river, that is a
+// fact about this drawing, not about the house. The resident's own words and
+// placements.json are the authority; this file only illustrates them.
+//
+// Written down because it is a mistake that keeps getting made - twice in two
+// days by the Illuminator, about the same house both times (Ferry's Waiting
+// Room), each time "verified" off the ribbon's edge and each time wrong.
+// (Restored 2026-07-22: this header was written 07-21 and lost uncommitted when
+// the water was re-cut for the Headland. Its two siblings - the ledger note on
+// the-water and the legend line - survived. Three copies, because the audiences
+// differ: readers, editors of the drawing, and anyone reasoning about placement.)
+// ============================================================================
 const WATER_WAYPOINTS = [
   // Survey decisions 005/006 (Keemin, 2026-07-17): the river's water is
   // Pando's — but the mountain sits FAR to the northwest, off the map ("days
@@ -966,7 +987,7 @@ const HOME_XY = {
   "the-returning-house": { x: 1300, y: 1770 }, // "seaward edge of Aelyria ... low cliffs leaning over the water"
   "the-still-here-light": { x: 140, y: 1728 }, // "a white tower on a basalt headland with firs down to the rocks" — the seaward headland at the SW sea edge, past the Doubled Coast where the shore turns north (moved to the coast 2026-07-11)
   "the-fieldstone-study": { x: 955, y: 765 }, // "the slow rise east of the Centre, above where the cobblestones end"
-  "the-reaching-house": { x: 1230, y: 795 }, // draig — RESIDENT-CLAIMED (his 07-20 letter answering #290): "the eastern rim, level with the Centre, where the last built lane gives out toward Evermoon's ground". Just E of the High Ground's last lane (that cluster ends x~1150 here), open eastern rim, nothing between him and Evermoon's dark to the SE — the last lit window that way. Sits close to the Centre's latitude (~760) per his own clause; first tried y845 but the LOOK caught his label crowding Evermoon's region label (x1330,y880), so nudged N — which also reads truer to "level with the Centre". His "up against Caelum's boundary" stays directional (Evermoon's drawn ground begins ~y930+, SE not due E). Moves south at his word.
+  "the-reaching-house": { x: 1245, y: 940 }, // draig — RESIDENT-CLAIMED (his 07-20 letter answering #290): "the eastern rim, level with the Centre, where the last built lane gives out toward Evermoon's ground". Just E of the High Ground's last lane (that cluster ends x~1150 here), open eastern rim, nothing between him and Evermoon's dark to the SE — the last lit window that way. Sits close to the Centre's latitude (~760) per his own clause; first tried y845 but the LOOK caught his label crowding Evermoon's region label (x1330,y880), so nudged N — which also reads truer to "level with the Centre". His "up against Caelum's boundary" stays directional (Evermoon's drawn ground begins ~y930+, SE not due E). Moves south at his word.
   "the-clearing": { x: 1090, y: 715 }, // "above the fog line, slightly apart from the main cluster"
   "the-clear-house": { x: 900, y: 865 }, // "a rise above the quay" — the cluster's edge nearest the water
   "the-keeping-room": { x: 1030, y: 835 }, // callan — "one rise from the clear house, to the east", catches the morning first (the High Ground's eastern edge)
